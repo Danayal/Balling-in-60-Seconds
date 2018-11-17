@@ -43,10 +43,10 @@ void setup() {
 
 void loop() {
   byte serialread;                //variable to hold received byte from java
-  if(true/*mySerial.available()*/)  //check if a byte is received from java
+  if(mySerial.available())  //check if a byte is received from java
   {
-    serialread = 0b11000000;  //test byte, expert difficulty, low jerk, no spin
-   // serialread = mySerial.read();   //read byte 
+   // serialread = 0b11000000;  //test byte, expert difficulty, low jerk, no spin
+    serialread = mySerial.read();   //read byte 
     Serial.println("Recieved Byte");
     Serial.println(serialread);
     bool jerk = false;
@@ -97,8 +97,6 @@ void loop() {
     float temp_x;
     float temp_y;
     float temp_z;
-    Serial.println("1 second to go!");
-    delay(1000);
     Serial.println("START");
     //sample accelerometer for 4 seconds
     for (int i = 0; i < difficulty; i++) {  //difficulty is the number of can be either 500 or 400 or 300 or 250
@@ -182,7 +180,6 @@ void loop() {
     mySerial.write(SendByte); //send byte to java
     Serial.println("Byte Sent");
     Serial.println(SendByte);
-    while(true);
   }
   else
   {
