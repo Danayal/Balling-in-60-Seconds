@@ -1,0 +1,5 @@
+Danayal	80000
+Danayal	30000
+Shavaiz	4000
+Ahmad	3000
+Shavaiz	50
